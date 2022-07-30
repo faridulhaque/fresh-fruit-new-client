@@ -1,0 +1,19 @@
+.entry-page{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.entry-form{
+    width: 300px;
+    height: 500px;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px 0;
+    padding: 25px;
+}
+.xChange-entry{
+    text-decoration: underline;
+}
+.xChange-entry:hover{
+    color: green;
+}

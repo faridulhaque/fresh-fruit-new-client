@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
   const navigate = useNavigate();
+
   return (
     <div>
       <div
@@ -22,7 +23,7 @@ const Banner = () => {
               onClick={() => navigate("/register")}
               className="btn btn-primary"
             >
-              Apply for registration
+              Register Now!
             </button>
           </div>
         </div>
