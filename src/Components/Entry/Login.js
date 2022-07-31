@@ -29,6 +29,7 @@ const Login = () => {
             className="input input-bordered"
           />
         </div>
+        <h2 className="mt-3 forgot-password">Forgot Password?</h2>
         <div className="form-control mt-6">
           <button className="btn btn-primary btn-block text-white" type="submit">Login</button>
         </div>
