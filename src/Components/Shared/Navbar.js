@@ -1,6 +1,10 @@
+import { signOut } from "firebase/auth";
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
+import { auth } from "../../firebase/firebase.init";
 const Navbar = () => {
+  const [user, loading, error] = useAuthState(auth);
   return (
     <div className="navbar bg-primary">
       <div className="navbar-start">
@@ -14,9 +18,9 @@ const Navbar = () => {
               stroke="currentColor"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M4 6h16M4 12h8m-8 6h16"
               />
             </svg>
@@ -48,7 +52,7 @@ const Navbar = () => {
                   <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
                 </svg>
               </Link>
-              <ul className="p-2">
+              <ul className="p-2 bg-base-100">
                 <li>
                   <Link to="">Add new item</Link>
                 </li>
@@ -58,11 +62,14 @@ const Navbar = () => {
                 <li>
                   <Link to="">Manage items</Link>
                 </li>
+                <li>
+                  <a onClick={() => signOut(auth)}>Log out</a>
+                </li>
               </ul>
             </li>
           </ul>
         </div>
-        <Link to="" className=" normal-case text-2xl text-white">
+        <Link to="/" className=" normal-case text-2xl text-white">
           Fresh Fruit
         </Link>
       </div>
@@ -78,31 +85,40 @@ const Navbar = () => {
           <li>
             <Link to="/suppliers">Suppliers</Link>
           </li>
-          <li tabIndex="0">
-            <Link to="">
-              More
-              <svg
-                className="fill-current"
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 24 24"
-              >
-                <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
-              </svg>
-            </Link>
-            <ul className="p-2 text-primary bg-base-100">
-              <li>
-                <Link to="">Add new item</Link>
-              </li>
-              <li>
-                <Link to="">My items</Link>
-              </li>
-              <li>
-                <Link to="">Manage items</Link>
-              </li>
-            </ul>
-          </li>
+          {user ? (
+            <li tabIndex="0">
+              <Link to="">
+                More
+                <svg
+                  className="fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
+                </svg>
+              </Link>
+              <ul className="p-2 text-primary bg-base-100">
+                <li>
+                  <Link to="">Add new item</Link>
+                </li>
+                <li>
+                  <Link to="">My items</Link>
+                </li>
+                <li>
+                  <Link to="">Manage items</Link>
+                </li>
+                <li>
+                  <a onClick={() => signOut(auth)}>Log out</a>
+                </li>
+              </ul>
+            </li>
+          ) : (
+            <li>
+              <Link to="login">Log In</Link>
+            </li>
+          )}
         </ul>
       </div>
       <div className="navbar-end"></div>

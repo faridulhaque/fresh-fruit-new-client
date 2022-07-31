@@ -1,8 +1,11 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
+import { auth } from "../../../firebase/firebase.init";
 
 const Banner = () => {
   const navigate = useNavigate();
+  const [user, loading, error] = useAuthState(auth);
 
   return (
     <div>
@@ -19,12 +22,14 @@ const Banner = () => {
             <p className="mb-5">
               The best wholesale fruits' provider in the town
             </p>
-            <button
-              onClick={() => navigate("/register")}
-              className="btn btn-primary"
-            >
-              Register Now!
-            </button>
+            {!user && (
+              <button
+                onClick={() => navigate("/register")}
+                className="btn btn-primary"
+              >
+                Register Now!
+              </button>
+            )}
           </div>
         </div>
       </div>
