@@ -6,6 +6,7 @@ import Suppliers from "./Components/Suppliers/Suppliers";
 import Blog from "./Components/Blog/Blog";
 import Register from "./Components/Entry/Register";
 import Login from "./Components/Entry/Login";
+import AddNewItem from "./Components/securedRoutes/AddNewItem";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/addNewItem" element={<AddNewItem></AddNewItem>}></Route>
       </Routes>
     </div>
   );

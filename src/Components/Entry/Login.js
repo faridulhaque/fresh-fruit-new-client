@@ -6,6 +6,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { Alert } from "react-st-modal";
 import { auth } from "../../firebase/firebase.init";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -34,7 +35,7 @@ const Login = () => {
   };
 
   if (loading || gLoading) {
-    return <p>loading...</p>;
+    return <Loading></Loading>;
   }
 
   if (user || gUser) {

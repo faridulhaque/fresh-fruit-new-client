@@ -7,6 +7,7 @@ import {
 } from "react-firebase-hooks/auth";
 import "./Entry.css";
 import { Alert } from "react-st-modal";
+import Loading from "../Shared/Loading";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -38,7 +39,7 @@ const Register = () => {
   }
 
   if (loading || gLoading) {
-    return <p>loading...</p>;
+    return <Loading></Loading>;
   }
 
   if (user || gUser) {

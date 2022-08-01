@@ -54,7 +54,7 @@ const Navbar = () => {
               </Link>
               <ul className="p-2 bg-base-100">
                 <li>
-                  <Link to="">Add new item</Link>
+                  <Link to="/addNewItem">Add new item</Link>
                 </li>
                 <li>
                   <Link to="">My items</Link>
@@ -101,7 +101,7 @@ const Navbar = () => {
               </Link>
               <ul className="p-2 text-primary bg-base-100">
                 <li>
-                  <Link to="">Add new item</Link>
+                  <Link to="/addNewItem">Add new item</Link>
                 </li>
                 <li>
                   <Link to="">My items</Link>

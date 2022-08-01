@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Jackfruit",
+    "price": "50",
+    "quantity": "121",
+    "img": "https://i.ibb.co/wYDhV7P/jackfruit.jpg",
+    "supplier": "The GreenFood supplier",
+    "description": "They are costly but healthy with unique taste, imported through India from Bangladesh",
+    "email": null,
+    "sold": 39
+  }
+]
