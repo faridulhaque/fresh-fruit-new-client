@@ -1,3 +1,4 @@
+/* all styles related to add new product page */
 .addNewProduct-parent {
     display: flex;
     justify-content: center;
@@ -37,4 +38,43 @@
 .description-anp {
     height: 100px;
     resize: none;
+}
+
+/* all styles related to add new product page ended! */
+
+/* responsive for mobile devices */
+@media only screen and (max-width: 576px) {
+    .form-wrapper-anp {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 25px;
+    }
+
+    .form-anp {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .input-group-anp {
+        width: 94%;
+        margin-left: 3%;
+        margin-right: 3%;
+
+    }
+}
+
+/* responsive for medium devices */
+@media only screen and (max-width: 820px) and (min-width: 577px) {
+    .form-wrapper-anp {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding: 25px;
+    }
+    .input-group-anp {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+
+    }
 }

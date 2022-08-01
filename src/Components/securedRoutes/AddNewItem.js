@@ -118,22 +118,15 @@ const AddNewItem = () => {
                 />
               </div>
               <div className="input-group-anp">
-                <div className="input-group-anp">
-                  <label className="label-anp" htmlFor="name">
-                    Img Url
-                  </label>
-                  <br />
-                  <input
-                    required
-                    name="img"
-                    className="input-anp"
-                    type="text"
-                  />
-                </div>
+                <label className="label-anp" htmlFor="name">
+                  Img Url
+                </label>
+                <br />
+                <input required name="img" className="input-anp" type="text" />
               </div>
             </div>
             <input
-              className="input-anp-btn mt-5 btn-primary btn-block btn required"
+              className="input-anp-btn mt-10 btn-primary btn-block btn required"
               type="submit"
             />
           </form>
