@@ -1,9 +1,10 @@
-.entry-page{
+.entry-page {
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.entry-form{
+
+.entry-form {
     width: 300px;
     height: 520px;
     background-color: white;
@@ -11,14 +12,36 @@
     box-shadow: 0 4px 8px 0;
     padding: 25px;
 }
-.xChange-entry{
+
+.xChange-entry {
     text-decoration: underline;
 }
-.xChange-entry:hover{
+
+.xChange-entry:hover {
     color: green;
 }
-.forgot-password:hover{
+
+.forgot-password:hover {
     cursor: pointer;
     text-decoration: underline;
 
+}
+
+@media only screen and (max-width: 576px) {
+    .entry-form {
+        height: auto;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+/* responsive for medium devices */
+@media only screen and (max-width: 920px) and (min-width: 577px) {
+    .entry-form {
+        height: auto;
+        width: 60%;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
 }

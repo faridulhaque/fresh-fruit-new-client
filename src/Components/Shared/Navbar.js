@@ -6,8 +6,8 @@ import { auth } from "../../firebase/firebase.init";
 import Loading from "./Loading";
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
-  if(loading){
-    return <Loading></Loading>
+  if (loading) {
+    return <Loading></Loading>;
   }
   return (
     <div className="navbar bg-primary">
@@ -45,7 +45,7 @@ const Navbar = () => {
             </li>
             {user ? (
               <li tabIndex="0">
-                <Link to="">
+                <a>
                   More
                   <svg
                     className="fill-current"
@@ -56,7 +56,7 @@ const Navbar = () => {
                   >
                     <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                   </svg>
-                </Link>
+                </a>
                 <ul className="p-2 text-primary bg-base-100">
                   <li>
                     <Link to="/addNewItem">Add new item</Link>
@@ -97,7 +97,7 @@ const Navbar = () => {
           </li>
           {user ? (
             <li tabIndex="0">
-              <Link to="">
+              <a>
                 More
                 <svg
                   className="fill-current"
@@ -108,7 +108,7 @@ const Navbar = () => {
                 >
                   <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                 </svg>
-              </Link>
+              </a>
               <ul className="p-2 text-primary bg-base-100">
                 <li>
                   <Link to="/addNewItem">Add new item</Link>
