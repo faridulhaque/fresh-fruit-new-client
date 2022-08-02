@@ -62,11 +62,9 @@ const Navbar = () => {
                     <Link to="/addNewItem">Add new item</Link>
                   </li>
                   <li>
-                    <Link to="">My items</Link>
+                    <Link to="/myItems">My items</Link>
                   </li>
-                  <li>
-                    <Link to="">Manage items</Link>
-                  </li>
+                  
                   <li>
                     <a onClick={() => signOut(auth)}>Log out</a>
                   </li>
@@ -114,11 +112,9 @@ const Navbar = () => {
                   <Link to="/addNewItem">Add new item</Link>
                 </li>
                 <li>
-                  <Link to="">My items</Link>
+                  <Link to="/myItems">My items</Link>
                 </li>
-                <li>
-                  <Link to="">Manage items</Link>
-                </li>
+                
                 <li>
                   <a onClick={() => signOut(auth)}>Log out</a>
                 </li>

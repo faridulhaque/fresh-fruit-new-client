@@ -1,8 +1,12 @@
 import React from "react";
 import { Alert } from "react-st-modal";
 import "./securedRoutes.css";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase/firebase.init";
+import Loading from "../Shared/Loading";
 
 const AddNewItem = () => {
+  const [user, loading, error] = useAuthState(auth);
   const handleSubmit = (e) => {
     e.preventDefault();
     const name = e.target.product.value;
@@ -11,6 +15,8 @@ const AddNewItem = () => {
     const minQuantity = e.target.minQuantity.value;
     const description = e.target.description.value;
     const img = e.target.img.value;
+    const supplierName = e.target.supplierName.value;
+    const email = e.target.email.value;
     const newData = {
       name,
       price,
@@ -18,6 +24,8 @@ const AddNewItem = () => {
       minQuantity,
       description,
       img,
+      supplierName,
+      email,
     };
     if (!img.includes("http")) {
       return Alert("Please add valid URL for image!", "Error!");
@@ -25,19 +33,21 @@ const AddNewItem = () => {
     if (price <= 0 || avlQuantity <= 0 || minQuantity <= 0) {
       handleError();
     } else {
-      console.log(newData);
-      fetch("http://localhost:5000/tools", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(newData),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          addingAlert();
-        });
+      sendingData(newData);
     }
+  };
+  const sendingData = (newData) => {
+    fetch("http://localhost:5000/fruits", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        addingAlert();
+      });
   };
   const handleError = async () => {
     await Alert(
@@ -47,9 +57,12 @@ const AddNewItem = () => {
     window.location.reload(false);
   };
   const addingAlert = async () => {
-    await Alert("well done", "Item successfully added");
+    await Alert("Item successfully added", "well done!");
     window.location.reload(false);
   };
+  if(loading){
+    return <Loading></Loading>
+  }
   return (
     <div>
       <h2 className="text-center text-3xl mt-5">Add new Product</h2>
@@ -106,6 +119,38 @@ const AddNewItem = () => {
                 />
               </div>
               <div className="input-group-anp">
+                <label className="label-anp">Supplier</label>
+                <br />
+                <input
+                  id="supplier"
+                  className="input-anp"
+                  type="text"
+                  name="supplierName"
+                  placeholder="Add the supplier's name"
+                  required
+                ></input>
+              </div>
+              <div className="input-group-anp">
+                <label className="label-anp">Email</label>
+                <br />
+                <input
+                  className="input-anp"
+                  type="email"
+                  name="email"
+                  placeholder="Add your email "
+                  disabled
+                  value={user?.email}
+                  title={user?.email}
+                ></input>
+              </div>
+              <div className="input-group-anp">
+                <label className="label-anp" htmlFor="name">
+                  Img Url
+                </label>
+                <br />
+                <input required name="img" className="input-anp" type="text" />
+              </div>
+              <div className="input-group-anp">
                 <label className="label-anp" htmlFor="name">
                   Description
                 </label>
@@ -116,13 +161,6 @@ const AddNewItem = () => {
                   className="input-anp description-anp"
                   type="text"
                 />
-              </div>
-              <div className="input-group-anp">
-                <label className="label-anp" htmlFor="name">
-                  Img Url
-                </label>
-                <br />
-                <input required name="img" className="input-anp" type="text" />
               </div>
             </div>
             <input
