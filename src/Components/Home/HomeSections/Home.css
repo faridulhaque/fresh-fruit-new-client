@@ -1,0 +1,127 @@
+/* styles for items section */
+.items {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+
+
+}
+
+.single-item-inventories {
+    width: 250px;
+    height: 500px;
+    padding-bottom: 25px;
+
+    margin-top: 50px;
+    margin-bottom: 50px;
+    position: relative;
+
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.single-item-inventories:hover {
+
+    transform: translateY(-50px);
+    transition: transform 0.5s;
+}
+
+.price-quantity-name {
+
+    display: flex;
+    width: 99%;
+    height: 100px;
+    margin-left: 0.5%;
+
+}
+
+.name-div {
+    width: 33%;
+    height: 80px;
+
+}
+
+.price-div {
+    width: 33%;
+    height: 80px;
+
+
+}
+
+.quantity-div {
+    height: 80px;
+    width: 33%;
+
+
+}
+
+.item-name-p {
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 18x;
+
+}
+
+.item-value-p {
+    text-align: center;
+    margin-top: -12px;
+    font-size: 14x;
+
+}
+
+.single-item-bottom {
+    width: 100%;
+    position: absolute;
+    bottom: 10px;
+}
+
+.update-btn-inventories {
+    background-color: rgb(8, 79, 42);
+    border: none;
+    width: 96%;
+    margin-left: 2%;
+    color: white;
+    height: 40px;
+    border-radius: 5px;
+}
+
+.update-btn-inventories:hover {
+    color: rgb(8, 79, 42);
+    border: 1px solid rgb(8, 79, 42);
+    background-color: white;
+
+}
+
+.manage-inventories-btn {
+    width: 250px;
+    height: 40px;
+    color: white;
+    background-color: rgb(8, 79, 42);
+    border-radius: 5px;
+    position: absolute;
+    right: 0;
+    left: 0;
+
+    margin: auto;
+    border: 0;
+    cursor: pointer;
+}
+
+.manage-inventories-btn:hover {
+    color: rgb(8, 79, 42);
+    border: 1px solid rgb(8, 79, 42);
+    background-color: white;
+    transition: background-color 0.5s;
+}
+
+/* responsive for mobile devices */
+@media only screen and (max-width: 570px) {
+    .items {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+
+
+
+    }
+}

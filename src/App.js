@@ -8,11 +8,13 @@ import Register from "./Components/Entry/Register";
 import Login from "./Components/Entry/Login";
 import AddNewItem from "./Components/securedRoutes/AddNewItem";
 import MyItems from "./Components/securedRoutes/MyItems";
+import SingleItem from "./Components/securedRoutes/SingleItem";
+import Footer from "./Components/Shared/Footer";
 
 function App() {
   return (
     <div>
-      <Navbar></Navbar>
+      <Navbar className="navbar-main"></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/suppliers" element={<Suppliers></Suppliers>}></Route>
@@ -21,7 +23,9 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/addNewItem" element={<AddNewItem></AddNewItem>}></Route>
         <Route path="/myItems" element={<MyItems></MyItems>}></Route>
+        <Route path="/home/:id" element={<SingleItem></SingleItem>}></Route>
       </Routes>
+      <Footer></Footer>
     </div>
   );
 }

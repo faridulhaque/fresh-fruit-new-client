@@ -41,6 +41,11 @@
 }
 
 /* all styles related to add new product page ended! */
+/* styles from my items page */
+
+.handleItem:hover {
+    cursor: pointer;
+}
 
 /* responsive for mobile devices */
 @media only screen and (max-width: 576px) {
@@ -71,6 +76,7 @@
         margin-right: 5%;
         padding: 25px;
     }
+
     .input-group-anp {
         width: 90%;
         margin-left: 5%;
