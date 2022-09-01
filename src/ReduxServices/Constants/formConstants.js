@@ -1,0 +1,3 @@
+export const FORM_DATA_LOADER = 'FORM_DATA_LOADER';
+export const FORM_DATA_SENDER = 'FORM_DATA_SENDER';
+export const FORM_DATA_ERROR = 'FORM_DATA_ERROR';

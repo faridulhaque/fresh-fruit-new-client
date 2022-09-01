@@ -22,7 +22,7 @@ const Items = () => {
     return <Loading></Loading>;
   }
   return (
-    <div className="my-5">
+    <div style={{marginTop: "100px"}}>
       <h1 className="text-center text-5xl">Items</h1>
       <div className="items container">
         {items.slice(0,6).map((item) => (
@@ -41,7 +41,7 @@ const Items = () => {
               </div>
               <div className="quantity-div">
                 <p className="item-name-p my-3">Quantity</p>
-                <p className="item-value-p">{item.quantity} KG</p>
+                <p className="item-value-p">{item.avlQuantity} KG</p>
               </div>
             </div>
 
@@ -65,8 +65,8 @@ const Items = () => {
           </div>
         ))}
       </div>
-      <button onClick={()=>navigate('/myItems')} className="manage-inventories-btn">
-        Manage Items
+      <button onClick={()=>navigate('/allItems')} className="manage-inventories-btn">
+        View All Items
       </button>
     </div>
   );

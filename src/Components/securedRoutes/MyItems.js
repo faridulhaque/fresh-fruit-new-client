@@ -51,7 +51,7 @@ const MyItems = () => {
   };
 
   return (
-    <div>
+    <div style={{paddingTop: '100px'}}>
       <h2 className="text-center text-3xl my-3">My Items</h2>
       {fruits.length === 0 ? (
         <p className="text-center my-3">

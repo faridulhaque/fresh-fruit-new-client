@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 
 const SingleItem = () => {
   const { id } = useParams();
-  return <div>{id}</div>;
+  return <div style={{marginTop: "100px"}}>{id}</div>;
 };
 
 export default SingleItem;

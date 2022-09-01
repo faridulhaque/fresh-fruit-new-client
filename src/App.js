@@ -10,11 +10,12 @@ import AddNewItem from "./Components/securedRoutes/AddNewItem";
 import MyItems from "./Components/securedRoutes/MyItems";
 import SingleItem from "./Components/securedRoutes/SingleItem";
 import Footer from "./Components/Shared/Footer";
+import AllItems from "./Components/securedRoutes/AllItems";
 
 function App() {
   return (
     <div>
-      <Navbar className="navbar-main"></Navbar>
+      <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="/suppliers" element={<Suppliers></Suppliers>}></Route>
@@ -24,6 +25,7 @@ function App() {
         <Route path="/addNewItem" element={<AddNewItem></AddNewItem>}></Route>
         <Route path="/myItems" element={<MyItems></MyItems>}></Route>
         <Route path="/home/:id" element={<SingleItem></SingleItem>}></Route>
+        <Route path="/allItems" element={<AllItems/>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

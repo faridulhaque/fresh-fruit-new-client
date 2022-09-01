@@ -4,6 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import { auth } from "../../firebase/firebase.init";
 import Loading from "./Loading";
+import "./Shared.css";
 const Navbar = () => {
   const [user, loading, error] = useAuthState(auth);
   if (loading) {
@@ -64,7 +65,10 @@ const Navbar = () => {
                   <li>
                     <Link to="/myItems">My items</Link>
                   </li>
-                  
+                  <li>
+                    <Link to="/allItems">All items</Link>
+                  </li>
+
                   <li>
                     <a onClick={() => signOut(auth)}>Log out</a>
                   </li>
@@ -114,7 +118,9 @@ const Navbar = () => {
                 <li>
                   <Link to="/myItems">My items</Link>
                 </li>
-                
+                <li>
+                  <Link to="/allItems">All items</Link>
+                </li>
                 <li>
                   <a onClick={() => signOut(auth)}>Log out</a>
                 </li>

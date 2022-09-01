@@ -64,7 +64,7 @@ const AddNewItem = () => {
     return <Loading></Loading>
   }
   return (
-    <div>
+    <div style={{marginTop: "100px"}}>
       <h2 className="text-center text-3xl mt-5">Add new Product</h2>
       <div className="addNewProduct-parent">
         <div className="form-wrapper-anp">
