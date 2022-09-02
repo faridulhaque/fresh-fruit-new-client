@@ -19,10 +19,11 @@ export const useTableStyles = () => {
         cells: {
             style: {
                 paddingLeft: '8px', // override the cell padding for data cells
-                paddingRight: '8px',
+                paddingRight: '8 px',
                 color: 'white',
                 textAlign: 'center',
                 fontSize: '16px',
+                margin: 'auto',
             },
         },
     };
