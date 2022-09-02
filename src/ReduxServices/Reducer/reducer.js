@@ -1,58 +1,140 @@
 import { FORM_DATA_ERROR, FORM_DATA_LOADER, FORM_DATA_SENDER } from "../Constants/formConstants";
 import { ALL_ITEM_ERROR, ALL_ITEM_LOADER, ALL_ITEM_RECEIVER } from "../Constants/allItemsConstants"
+import { DELETE_MY_ITEM_FAILED, DELETE_MY_ITEM_LOADER, DELETE_MY_ITEM_SUCCESS } from "../Constants/deleteMyItemConstants";
+import { combineReducers } from "redux";
+import { MY_ITEM_LOADER, MY_ITEM_SUCCESS } from "../Constants/MyItemsConstants";
 
 const initialStateForm = {
-    data: [],
-    isLoading: false,
-    error: null
+    formData: [],
+    isFormLoading: false,
+    formError: null
+}
+const initialStateAllItem = {
+    allItemData: [],
+    isAllItemLoading: false,
+    allItemError: null
+}
+const initialStateMyItem = {
+    myItemData: [],
+    isMyItemLoading: false,
+    myItemError: null
+}
+const initialStateMyItemDel = {
+    myData: [],
+    isMyDataLoading: false,
+    myDataError: null
 }
 
-const reducer = (state = initialStateForm, action) => {
+
+export const FormDataReducer = (state = initialStateForm, action) => {
     // reducing form data sending from form.js 
     switch (action.type) {
         case FORM_DATA_LOADER:
             return {
                 ...state,
-                isLoading: true
+                isFormLoading: true
             }
         case FORM_DATA_SENDER:
             return {
                 ...state,
-                isLoading: false,
-                data: action.payload,
-                error: null
+                isFormLoading: false,
+                formData: action.payload,
+                formError: null
             }
         case FORM_DATA_ERROR:
             return {
                 ...state,
-                isLoading: false,
-                data: [],
-                error: action.payload
+                isFormLoading: false,
+                formData: [],
+                formError: action.payload
             }
-        // getting data for all items 
-        case ALL_ITEM_LOADER:
+
+
+        default:
+            return state;
+    }
+}
+export const myItemReducer = (state = initialStateMyItem, action) => {
+    switch (action.type) {
+
+
+        // delete my item reducing
+        case MY_ITEM_LOADER:
             return {
                 ...state,
-                data: [],
-                isLoading: true,
-                error: null
+                isMyItemLoading: true
             }
-        case ALL_ITEM_RECEIVER:
+        case MY_ITEM_SUCCESS:
             return {
                 ...state,
-                data: action.payload,
-                isLoading: false,
-                error: null
+                isMyItemLoading: false,
+                myItemData: action.payload,
+                myItemError: null
             }
         case ALL_ITEM_ERROR:
             return {
                 ...state,
-                data: [],
-                isLoading: false,
-                error: action.payload
+                isMyItemLoading: false,
+                myItemData: [],
+                myItemError: action.payload
             }
         default:
             return state;
     }
 }
-export default reducer;
+export const allItemReducer = (state = initialStateAllItem, action) => {
+    switch (action.type) {
+
+
+        // delete my item reducing
+        case ALL_ITEM_LOADER:
+            return {
+                ...state,
+                isAllItemLoading: true
+            }
+        case ALL_ITEM_RECEIVER:
+            return {
+                ...state,
+                isAllItemLoading: false,
+                allItemData: action.payload,
+                allItemError: null
+            }
+        case ALL_ITEM_ERROR:
+            return {
+                ...state,
+                isAllItemLoading: false,
+                allItemData: [],
+                allItemError: action.payload
+            }
+        default:
+            return state;
+    }
+}
+export const myItemDeleteReducer = (state = initialStateMyItemDel, action) => {
+    switch (action.type) {
+
+
+        // delete my item reducing
+        case DELETE_MY_ITEM_LOADER:
+            return {
+                ...state,
+                isMyDataLoading: true
+            }
+        case DELETE_MY_ITEM_SUCCESS:
+            return {
+                ...state,
+                isMyDataLoading: false,
+                myData: action.payload,
+                myDataError: null
+            }
+        case DELETE_MY_ITEM_FAILED:
+            return {
+                ...state,
+                isMyDataLoading: false,
+                myData: [],
+                myDataError: action.payload
+            }
+        default:
+            return state;
+    }
+}

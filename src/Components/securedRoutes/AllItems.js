@@ -9,7 +9,7 @@ import useAllItemsTable from "../Tables/useAllItemsTable";
 import { useTableStyles } from "../Tables/useTableStyles";
 
 const AllItems = () => {
-  const { isLoading, data, error } = useSelector((state) => state);
+  const { allItemData, isAllItemLoading, allItemError } = useSelector((state) => state);
 
   const dispatch = useDispatch()
   useEffect(() => {
@@ -21,7 +21,7 @@ const AllItems = () => {
   const [allItemsColumn] = useAllItemsTable()
   const [customTableStyles] = useTableStyles()
 
-  if (isLoading) {
+  if (isAllItemLoading) {
     return <Loading></Loading>;
   }
 
@@ -31,7 +31,7 @@ const AllItems = () => {
         All Items
       </h2>
       <div className="mx-20">
-        <DataTable data={data} columns={allItemsColumn} pagination customStyles={customTableStyles}></DataTable>
+        <DataTable data={allItemData} columns={allItemsColumn} pagination customStyles={customTableStyles}></DataTable>
       </div>
     </div>
   );
