@@ -33,10 +33,10 @@ const AddNewItem = () => {
     if (price <= 0 || avlQuantity <= 0 || minQuantity <= 0) {
       handleError();
     } else {
-      sendingData(newData);
+      sendingData(newData, e);
     }
   };
-  const sendingData = (newData) => {
+  const sendingData = (newData, e) => {
     fetch("http://localhost:5000/fruits", {
       method: "POST",
       headers: {
@@ -46,7 +46,7 @@ const AddNewItem = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        addingAlert();
+        addingAlert(e);
       });
   };
   const handleError = async () => {
@@ -54,17 +54,18 @@ const AddNewItem = () => {
       "Please input a number above 0 for price and quantities",
       "Opps!"
     );
-    window.location.reload(false);
+
   };
-  const addingAlert = async () => {
+  const addingAlert = async (e) => {
     await Alert("Item successfully added", "well done!");
-    window.location.reload(false);
+    e.target.reset()
+
   };
-  if(loading){
+  if (loading) {
     return <Loading></Loading>
   }
   return (
-    <div style={{marginTop: "100px"}}>
+    <div style={{ margin: "100px 0" }}>
       <h2 className="text-center text-3xl mt-5">Add new Product</h2>
       <div className="addNewProduct-parent">
         <div className="form-wrapper-anp">

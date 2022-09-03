@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Loading from "../../Shared/Loading";
 import { useQuery } from "react-query";
 import './Home.css'
 
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
+import MyItemEditModal from "../../Modals/MyItemEditModal";
 
 const Items = () => {
+  const [isEditing, setEditing] = useState(null)
   const navigate = useNavigate()
   const {
     data: items,
@@ -22,10 +24,10 @@ const Items = () => {
     return <Loading></Loading>;
   }
   return (
-    <div style={{marginTop: "100px"}}>
+    <div style={{ marginTop: "100px" }}>
       <h1 className="text-center text-5xl">Items</h1>
       <div className="items container">
-        {items.slice(0,6).map((item) => (
+        {items.slice(0, 6).map((item) => (
           <div className="single-item-inventories" key={item._id}>
             <img style={{ height: 200, width: 250 }} src={item.img} alt="" />
 
@@ -53,21 +55,22 @@ const Items = () => {
             </div>
 
             <div className="single-item-bottom">
-              <button
-                onClick={() => {
-                  navigate(`/home/${item._id}`);
-                }}
-                className="update-btn-inventories"
+              <label htmlFor="my-modal"
+                onClick={() => setEditing(item)}
+                className="update-btn-inventories btn"
               >
                 Update
-              </button>
+              </label>
             </div>
           </div>
         ))}
       </div>
-      <button onClick={()=>navigate('/allItems')} className="manage-inventories-btn">
+      <button onClick={() => navigate('/allItems')} className="manage-inventories-btn">
         View All Items
       </button>
+      {
+        isEditing && <MyItemEditModal isEditing={isEditing} setEditing={setEditing} action={refetch}></MyItemEditModal>
+      }
     </div>
   );
 };

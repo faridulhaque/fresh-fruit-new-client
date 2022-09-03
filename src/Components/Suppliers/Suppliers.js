@@ -9,7 +9,7 @@ import { useTableStyles } from '../Tables/useTableStyles';
 
 const Suppliers = () => {
 
-    const { isLoading, data, error } = useSelector((state) => state);
+    const { isAllItemLoading, allItemData, allItemError } = useSelector((state) => state.allItem);
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -21,7 +21,7 @@ const Suppliers = () => {
     const [supplierColumn] = useSupplierTable()
     const [customTableStyles] = useTableStyles()
 
-    if (isLoading) {
+    if (isAllItemLoading) {
         return <Loading></Loading>;
     }
 
@@ -31,7 +31,7 @@ const Suppliers = () => {
                 Suppliers
             </h2>
             <div className='mx-20'>
-                <DataTable data={data} columns={supplierColumn} pagination customStyles={customTableStyles}></DataTable>
+                <DataTable data={allItemData} columns={supplierColumn} pagination customStyles={customTableStyles}></DataTable>
             </div>
         </div>
     );

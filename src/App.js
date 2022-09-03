@@ -11,10 +11,12 @@ import MyItems from "./Components/securedRoutes/MyItems";
 import SingleItem from "./Components/securedRoutes/SingleItem";
 import Footer from "./Components/Shared/Footer";
 import AllItems from "./Components/securedRoutes/AllItems";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <div>
+      <ToastContainer></ToastContainer>
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home></Home>}></Route>
@@ -25,9 +27,10 @@ function App() {
         <Route path="/addNewItem" element={<AddNewItem></AddNewItem>}></Route>
         <Route path="/myItems" element={<MyItems></MyItems>}></Route>
         <Route path="/home/:id" element={<SingleItem></SingleItem>}></Route>
-        <Route path="/allItems" element={<AllItems/>}></Route>
+        <Route path="/allItems" element={<AllItems />}></Route>
       </Routes>
       <Footer></Footer>
+      
     </div>
   );
 }

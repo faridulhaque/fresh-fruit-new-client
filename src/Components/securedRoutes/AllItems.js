@@ -9,7 +9,7 @@ import useAllItemsTable from "../Tables/useAllItemsTable";
 import { useTableStyles } from "../Tables/useTableStyles";
 
 const AllItems = () => {
-  const { allItemData, isAllItemLoading, allItemError } = useSelector((state) => state);
+  const { allItemData, isAllItemLoading, allItemError } = useSelector((state) => state.allItem);
 
   const dispatch = useDispatch()
   useEffect(() => {

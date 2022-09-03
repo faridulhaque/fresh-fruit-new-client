@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import { Confirm } from "react-st-modal";
 import { auth } from "../../firebase/firebase.init";
-import { getMyItems } from "../../ReduxServices/Actions/myItemsActions";
+import { deleteMyItem, getMyItems } from "../../ReduxServices/Actions/myItemsActions";
+import MyItemEditModal from "../Modals/MyItemEditModal";
 
 import Loading from "../Shared/Loading";
 import useMyItemsTable from "../Tables/useMyItemsTable";
@@ -13,10 +13,11 @@ import { useTableStyles } from "../Tables/useTableStyles";
 import "./securedRoutes.css";
 
 const MyItems = () => {
-  const navigate = useNavigate();
+  const [isEditing, setEditing] = useState(null)
   const [user, loading, Uerror] = useAuthState(auth);
   const email = user?.email;
-  const { myItemData, isMyItemLoading, myItemError } = useSelector((state) => state);
+  const { myItemData, isMyItemLoading, myItemError } = useSelector((state) => state.myItem);
+
 
 
   const dispatch = useDispatch()
@@ -25,24 +26,36 @@ const MyItems = () => {
 
       dispatch(getMyItems(email))
     }
-  }, [dispatch])
+  }, [dispatch, email])
 
 
-  const handleItem = async (task) => {
-    const id = task._id;
+  const handleDispatch = () => {
+    dispatch(getMyItems(email))
 
-    if (task.method === "edit") {
-      navigate(`/home/${id}`);
-    } else if (task.method === "delete") {
+  }
+
+  const handleItem = async (item) => {
+    const id = item._id;
+
+    if (item.method === "edit") {
+      setEditing(item)
+    } else if (item.method === "delete") {
       const isConfirm = await Confirm(
         "You cannot undo this action",
         "Are you sure you want to delete the item?"
       );
       if (isConfirm) {
-        console.log('done')
+
+        dispatch(deleteMyItem(id))
+
+        setTimeout(() => {
+          dispatch(getMyItems(email))
+
+        }, 1000);
 
       }
     }
+
   };
 
   // const myItems = data.filter(item => item?.email === email)
@@ -66,6 +79,9 @@ const MyItems = () => {
       <div className="mx-20">
         <DataTable data={myItemData} columns={myItemsColumn} pagination ></DataTable>
       </div>
+      {
+        isEditing && <MyItemEditModal isEditing={isEditing} setEditing={setEditing} action={handleDispatch}></MyItemEditModal>
+      }
     </div>
   );
 };

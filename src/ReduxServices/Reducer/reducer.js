@@ -1,7 +1,6 @@
 import { FORM_DATA_ERROR, FORM_DATA_LOADER, FORM_DATA_SENDER } from "../Constants/formConstants";
 import { ALL_ITEM_ERROR, ALL_ITEM_LOADER, ALL_ITEM_RECEIVER } from "../Constants/allItemsConstants"
-import { DELETE_MY_ITEM_FAILED, DELETE_MY_ITEM_LOADER, DELETE_MY_ITEM_SUCCESS } from "../Constants/deleteMyItemConstants";
-import { combineReducers } from "redux";
+import { DELETE_MY_ITEM_FAILED, DELETE_MY_ITEM_LOADER, DELETE_MY_ITEM_SUCCESS } from "../Constants/MyItemsConstants";
 import { MY_ITEM_LOADER, MY_ITEM_SUCCESS } from "../Constants/MyItemsConstants";
 
 const initialStateForm = {
