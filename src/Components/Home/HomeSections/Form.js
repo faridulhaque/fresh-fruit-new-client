@@ -27,10 +27,10 @@ const Form = () => {
 
             <h2 className='text-4xl text-center mt-20'> Do you have any query or suggestion?</h2>
             <form onSubmit={handleSubmit}>
-                <div className='suggestion-form grid grid-cols-2 justify-items-center my-20'>
+                <div className='suggestion-form grid lg:grid-cols-2 sm:grid-cols-1 justify-items-center my-20'>
                     <div className='suggestion-left w-80 h-80'
                     ><img className='h-full w-full' src={imgForm} alt="" /></div>
-                    <div className='suggestion-right w-96 h-80 shadow-2xl px-10 pt-5'>
+                    <div className='suggestion-right lg:w-96 sm:w-80 h-80 shadow-2xl px-10 pt-5'>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>

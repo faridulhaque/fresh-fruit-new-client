@@ -30,7 +30,7 @@ const Suppliers = () => {
             <h2 className="text-center text-4xl mb-3 text-primary" style={{ marginTop: "100px" }}>
                 Suppliers
             </h2>
-            <div className='mx-20'>
+            <div className='lg:mx-20 sm:mx-2'>
                 <DataTable data={allItemData} columns={supplierColumn} pagination customStyles={customTableStyles}></DataTable>
             </div>
         </div>
