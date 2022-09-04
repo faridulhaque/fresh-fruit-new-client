@@ -12,6 +12,7 @@ import SingleItem from "./Components/securedRoutes/SingleItem";
 import Footer from "./Components/Shared/Footer";
 import AllItems from "./Components/securedRoutes/AllItems";
 import { ToastContainer } from "react-toastify";
+import RequireAuth from "./Components/RequireAuth/RequireAuth";
 
 function App() {
   return (
@@ -24,10 +25,9 @@ function App() {
         <Route path="/blog" element={<Blog></Blog>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/addNewItem" element={<AddNewItem></AddNewItem>}></Route>
-        <Route path="/myItems" element={<MyItems></MyItems>}></Route>
-        <Route path="/home/:id" element={<SingleItem></SingleItem>}></Route>
-        <Route path="/allItems" element={<AllItems />}></Route>
+        <Route path="/addNewItem" element={<RequireAuth><AddNewItem></AddNewItem></RequireAuth>}></Route>
+        <Route path="/myItems" element={<RequireAuth><MyItems></MyItems></RequireAuth>}></Route>
+        <Route path="/allItems" element={<RequireAuth><AllItems /></RequireAuth>}></Route>
       </Routes>
       <Footer></Footer>
       

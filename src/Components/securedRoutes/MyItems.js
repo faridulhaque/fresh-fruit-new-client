@@ -6,6 +6,7 @@ import { Confirm } from "react-st-modal";
 import { auth } from "../../firebase/firebase.init";
 import { deleteMyItem, getMyItems } from "../../ReduxServices/Actions/myItemsActions";
 import MyItemEditModal from "../Modals/MyItemEditModal";
+import RequireAuth from "../RequireAuth/RequireAuth";
 
 import Loading from "../Shared/Loading";
 import useMyItemsTable from "../Tables/useMyItemsTable";
@@ -80,7 +81,7 @@ const MyItems = () => {
         <DataTable data={myItemData} columns={myItemsColumn} pagination ></DataTable>
       </div>
       {
-        isEditing && <MyItemEditModal isEditing={isEditing} setEditing={setEditing} action={handleDispatch}></MyItemEditModal>
+        isEditing && <RequireAuth><MyItemEditModal isEditing={isEditing} setEditing={setEditing} action={handleDispatch}></MyItemEditModal></RequireAuth>
       }
     </div>
   );

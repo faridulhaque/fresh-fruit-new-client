@@ -6,6 +6,7 @@ import './Home.css'
 import "./Home.css";
 import { useNavigate } from "react-router-dom";
 import MyItemEditModal from "../../Modals/MyItemEditModal";
+import RequireAuth from "../../RequireAuth/RequireAuth";
 
 const Items = () => {
   const [isEditing, setEditing] = useState(null)
@@ -69,7 +70,7 @@ const Items = () => {
         View All Items
       </button>
       {
-        isEditing && <MyItemEditModal isEditing={isEditing} setEditing={setEditing} action={refetch}></MyItemEditModal>
+        isEditing && <RequireAuth><MyItemEditModal isEditing={isEditing} setEditing={setEditing} action={refetch}></MyItemEditModal></RequireAuth>
       }
     </div>
   );
