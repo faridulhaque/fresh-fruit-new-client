@@ -37,7 +37,7 @@ const AddNewItem = () => {
     }
   };
   const sendingData = (newData, e) => {
-    fetch("http://localhost:5000/fruits", {
+    fetch("https://fresh-fruit-new-server.onrender.com/fruits", {
       method: "POST",
       headers: {
         "content-type": "application/json",

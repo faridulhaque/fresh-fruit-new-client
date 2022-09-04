@@ -6,7 +6,7 @@ export const sendingFormData = (data) => async (dispatch) => {
     
     dispatch({ type: FORM_DATA_LOADER })
     try {
-        const result = axios.post("http://localhost:5000/formData", data)
+        const result = axios.post("https://fresh-fruit-new-server.onrender.com/formData", data)
         dispatch({ type: FORM_DATA_SENDER, payload: result.data })
     }
     catch (error) {

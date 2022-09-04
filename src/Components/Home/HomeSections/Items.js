@@ -16,7 +16,7 @@ const Items = () => {
     isLoading,
     refetch,
   } = useQuery("fruit", () =>
-    fetch(`http://localhost:5000/fruits`, {
+    fetch(`https://fresh-fruit-new-server.onrender.com/fruits`, {
       method: "GET",
     }).then((res) => res.json())
   );

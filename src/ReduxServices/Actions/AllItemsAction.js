@@ -4,7 +4,7 @@ import axios from 'axios'
 export const getAllItems = () => async (dispatch) => {
     dispatch({type: ALL_ITEM_LOADER})
     try {
-        const result = await axios.get('http://localhost:5000/fruits')
+        const result = await axios.get('https://fresh-fruit-new-server.onrender.com/fruits')
         dispatch({type: ALL_ITEM_RECEIVER, payload: result.data})
     }
     catch (error) {

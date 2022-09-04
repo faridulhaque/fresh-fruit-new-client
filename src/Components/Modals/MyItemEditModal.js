@@ -14,7 +14,7 @@ const MyItemEditModal = ({ isEditing, setEditing, action }) => {
 
     const handleUpdate = async (data) => {
         const body = { data }
-        await axios.put(`http://localhost:5000/fruit/update/${data._id}`, body)
+        await axios.put(`https://fresh-fruit-new-server.onrender.com/fruit/update/${data._id}`, body)
             .then((response) => {
                 if (response.data.acknowledged) {
                     toast.success('Available Quantity updated successfully',
@@ -50,7 +50,7 @@ const MyItemEditModal = ({ isEditing, setEditing, action }) => {
     }
 
     useEffect(() => {
-        fetch(`http://localhost:5000/singleItemData/${_id}`)
+        fetch(`https://fresh-fruit-new-server.onrender.com/singleItemData/${_id}`)
             .then(res => res.json())
             .then(data => setItem(data))
     }, [item, _id])

@@ -4,7 +4,7 @@ import { DELETE_MY_ITEM_FAILED, DELETE_MY_ITEM_LOADER, DELETE_MY_ITEM_SUCCESS, M
 export const getMyItems = (email) => async (dispatch) => {
     dispatch({ type: MY_ITEM_LOADER })
     try {
-        const result = await axios.get(`http://localhost:5000/fruit/${email}`)
+        const result = await axios.get(`https://fresh-fruit-new-server.onrender.com/fruit/${email}`)
         dispatch({ type: MY_ITEM_SUCCESS, payload: result.data })
     }
     catch (error) {
@@ -15,7 +15,7 @@ export const getMyItems = (email) => async (dispatch) => {
 export const deleteMyItem = (id) => async (dispatch) => {
     dispatch({type: DELETE_MY_ITEM_LOADER})
     try{
-        const result = await axios.delete(`http://localhost:5000/fruit/del/${id}`)
+        const result = await axios.delete(`https://fresh-fruit-new-server.onrender.com/fruit/del/${id}`)
         dispatch({type: DELETE_MY_ITEM_SUCCESS, payload: result.data})
     }
     catch(error){
