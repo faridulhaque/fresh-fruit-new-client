@@ -10,7 +10,6 @@ import RequireAuth from "../RequireAuth/RequireAuth";
 
 import Loading from "../Shared/Loading";
 import useMyItemsTable from "../Tables/useMyItemsTable";
-import { useTableStyles } from "../Tables/useTableStyles";
 import "./securedRoutes.css";
 
 const MyItems = () => {
@@ -63,7 +62,6 @@ const MyItems = () => {
 
 
 
-  const [customTableStyles] = useTableStyles()
   const [myItemsColumn] = useMyItemsTable({ handleItem })
 
   if (isMyItemLoading || loading) {

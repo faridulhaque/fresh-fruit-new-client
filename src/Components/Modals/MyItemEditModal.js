@@ -30,7 +30,7 @@ const MyItemEditModal = ({ isEditing, setEditing, action }) => {
                     )
                 }
                 else if (response.data.errorMessage) {
-                    toast.warn(`${response.data.errorMessage}`, {
+                    toast.warn(`Please let us know why you disliked the product`, {
 
                         position: "bottom-center",
                         autoClose: 3000,
